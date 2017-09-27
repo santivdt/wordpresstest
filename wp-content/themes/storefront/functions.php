@@ -28,6 +28,20 @@ $storefront = (object) array(
 	'customizer' => require 'inc/customizer/class-storefront-customizer.php',
 );
 
+/**
+ * *SVDT remove admin color bar from user profile
+ */
+
+function admin_color_scheme() {
+    global $_wp_admin_css_colors;
+    $_wp_admin_css_colors = 0;
+}
+add_action('admin_head', 'admin_color_scheme');
+
+/**
+ * End remove admin color bar
+ */
+
 require 'inc/storefront-functions.php';
 require 'inc/storefront-template-hooks.php';
 require 'inc/storefront-template-functions.php';
